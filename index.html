@@ -15,28 +15,26 @@
     </header>
     <main>
         <form id="itineraryForm">
-    <div class="form-group">
+    <div class="form-row">
         <label for="days">¿Cuántos días quieres usar?</label>
-        <input type="number" id="days" name="days" required>
-    </div>
-    <div class="form-group">
         <label for="pathPreference">¿Tienes alguna preferencia de camino?</label>
+        <label for="mode">¿Cómo lo vas a hacer?</label>
+    </div>
+    <div class="form-row">
+        <input type="number" id="days" name="days" required>
         <select id="pathPreference" name="pathPreference">
             <option value="none">Ninguna preferencia</option>
             <option value="french">Camino Francés</option>
             <option value="primitive">Camino Primitivo</option>
             <option value="north">Camino del Norte</option>
         </select>
-    </div>
-    <div class="form-group">
-        <label for="mode">¿Cómo lo vas a hacer?</label>
         <select id="mode" name="mode">
             <option value="walking">Andando</option>
             <option value="biking">En bici</option>
         </select>
     </div>
-    <!-- Agrega aquí tus otros campos de formulario -->
 </form>
+
 
         <div id="results">
             <!-- Los resultados se mostrarán aquí -->
