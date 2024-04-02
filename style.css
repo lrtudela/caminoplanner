@@ -43,5 +43,5 @@ button {
 header img {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* Esto asegura que la imagen se ajuste bien al tamaño sin distorsionarse */
+    object-fit: cover;
 }
