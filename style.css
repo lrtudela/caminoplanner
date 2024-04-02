@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #f3f3f3;
+}
+
+main {
+    padding: 2em;
+}
+
+form {
+    margin: 2em 0;
+}
+
+label {
+    display: block;
+    margin: 0.5em 0;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 0.5em 1em;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
