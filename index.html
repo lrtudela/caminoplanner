@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerarios del Camino de Santiago</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de crear este archivo -->
+</head>
+<body>
+    <h1>Planifica tu Camino de Santiago</h1>
+    <form id="itineraryForm">
+        <label for="days">¿Cuántos días quieres usar?</label>
+        <input type="number" id="days" name="days" required>
+
+        <label for="pathPreference">¿Tienes alguna preferencia de camino?</label>
+        <select id="pathPreference" name="pathPreference">
+            <option value="none">Ninguna preferencia</option>
+            <option value="french">Camino Francés</option>
+            <option value="primitive">Camino Primitivo</option>
+            <option value="north">Camino del Norte</option>
+        </select>
+
+        <label for="mode">¿Cómo lo vas a hacer?</label>
+        <select id="mode" name="mode">
+            <option value="walking">Andando</option>
+            <option value="biking">En bici</option>
+        </select>
+
+        <fieldset>
+            <legend>En qué quieres centrar tu camino</legend>
+            <label><input type="checkbox" name="focus" value="nature"> Naturaleza</label>
+            <label><input type="checkbox" name="focus" value="history"> Historia</label>
+            <label><input type="checkbox" name="focus" value="social"> Conocer gente</label>
+        </fieldset>
+
+        <label for="accommodation">Preferencias de alojamiento</label>
+        <select id="accommodation" name="accommodation">
+            <option value="indifferent">Me da igual</option>
+            <option value="avoid_hostels">Evitar albergues</option>
+            <option value="avoid_hotels">Evitar hoteles</option>
+        </select>
+
+        <label for="otherPreferences">Otras preferencias</label>
+        <select id="otherPreferences" multiple name="otherPreferences">
+            <option value="budget">Tengo un presupuesto ajustado</option>
+            <option value="avoid_cities">Quiero evitar grandes ciudades</option>
+            <option value="avoid_crowds">Quiero evitar caminos masificados</option>
+            <option value="no_budget_issues">No tengo problemas de presupuesto</option>
+            <option value="flexible_days">Mis días son flexibles</option>
+        </select>
+
+        <button type="submit">Generar Itinerario</button>
+    </form>
+
+    <div id="results">
+        <!-- Los resultados se mostrarán aquí -->
+    </div>
+
+    <script src="script.js"></script> <!-- Asegúrate de crear este archivo -->
+</body>
+</html>
