@@ -15,26 +15,29 @@
     </header>
     <main>
         <form id="itineraryForm">
-            <label for="days">¿Cuántos días quieres usar?</label>
-            <input type="number" id="days" name="days" required>
+    <div class="form-group">
+        <label for="days">¿Cuántos días quieres usar?</label>
+        <input type="number" id="days" name="days" required>
+    </div>
+    <div class="form-group">
+        <label for="pathPreference">¿Tienes alguna preferencia de camino?</label>
+        <select id="pathPreference" name="pathPreference">
+            <option value="none">Ninguna preferencia</option>
+            <option value="french">Camino Francés</option>
+            <option value="primitive">Camino Primitivo</option>
+            <option value="north">Camino del Norte</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="mode">¿Cómo lo vas a hacer?</label>
+        <select id="mode" name="mode">
+            <option value="walking">Andando</option>
+            <option value="biking">En bici</option>
+        </select>
+    </div>
+    <!-- Agrega aquí tus otros campos de formulario -->
+</form>
 
-            <label for="pathPreference">¿Tienes alguna preferencia de camino?</label>
-            <select id="pathPreference" name="pathPreference">
-                <option value="none">Ninguna preferencia</option>
-                <option value="french">Camino Francés</option>
-                <option value="primitive">Camino Primitivo</option>
-                <option value="north">Camino del Norte</option>
-            </select>
-
-            <label for="mode">¿Cómo lo vas a hacer?</label>
-            <select id="mode" name="mode">
-                <option value="walking">Andando</option>
-                <option value="biking">En bici</option>
-            </select>
-
-<!-- Agrega campos similares para el resto de las preguntas basadas en tu requerimiento -->
-
-        </form>
         <div id="results">
             <!-- Los resultados se mostrarán aquí -->
         </div>
