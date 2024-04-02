@@ -45,18 +45,13 @@ header img {
     height: 150px;
     object-fit: cover;
 }
-.form-group {
+.form-row {
     display: flex;
-    flex-direction: column; /* Hace que los elementos hijos se apilen verticalmente */
-    align-items: flex-start; /* Alinea los elementos al inicio, haciendo que las cajas estén debajo de las etiquetas */
-    margin-bottom: 20px; /* Añade un poco de espacio debajo de cada grupo para separarlos */
+    justify-content: space-between; /* Esto distribuirá el espacio uniformemente entre los elementos */
+    margin-bottom: 10px; /* Espacio entre las filas */
 }
 
-.form-group label {
-    margin-bottom: 5px; /* Añade un poco de espacio entre la etiqueta y la caja */
-}
-
-/* Asegúrate de que tus inputs y selects llenen el ancho disponible */
-input[type="number"], select {
-    width: 100%; /* Esto hace que las cajas de entrada se expandan para llenar el ancho de su contenedor .form-group */
+input, select {
+    width: calc(33.333% - 10px); /* Distribuye el ancho uniformemente, ajusta el '10px' según sea necesario para el espacio */
+    /* El cálculo del ancho asume 3 elementos con un pequeño ajuste para el espaciado entre ellos */
 }
