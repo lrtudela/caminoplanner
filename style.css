@@ -46,16 +46,17 @@ input[type="number"], select {
 /* Contenedor general para los checkboxes */
 .checkboxes-container {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Permite que los fieldsets se coloquen uno debajo del otro en pantallas pequeñas */
+    justify-content: space-between; /* Esto separa los fieldset uniformemente */
+    flex-wrap: wrap; /* Permite que los fieldset se envuelvan en pantallas más pequeñas */
+    gap: 20px; /* Añade un poco de espacio entre los fieldset */
 }
 
 /* Estilos para cada fieldset de checkboxes */
 .checkboxes-fieldset {
+    width: calc(50% - 10px); /* Ajusta el ancho para dos fieldsets por fila, considerando el gap */
     border: 1px solid #ccc;
     padding: 20px;
     margin-top: 20px;
-    flex-basis: 48%; /* Hace que cada fieldset ocupe aproximadamente la mitad del contenedor, ajusta según necesites */
 }
 
 /* Estilos para la leyenda de cada fieldset */
@@ -90,11 +91,10 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 768px) {
-    .form-row, .checkboxes-container {
+    .checkboxes-container {
         flex-direction: column;
     }
-
-    .checkboxes-fieldset, .form-field {
-        flex-basis: auto; /* Permite que los fieldsets y campos del formulario ocupen el ancho completo en pantallas pequeñas */
+    .checkboxes-fieldset {
+        width: 100%; /* Los fieldset ocupan todo el ancho en pantallas pequeñas */
     }
 }
