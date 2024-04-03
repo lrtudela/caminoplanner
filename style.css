@@ -97,6 +97,12 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    padding-top: 20px; /* Añade espacio en la parte superior para bajar el botón */
+}
+
 @media (max-width: 768px) {
     .checkboxes-container {
         flex-direction: column;
