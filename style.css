@@ -11,8 +11,15 @@ header, footer {
     background-color: #f3f3f3;
 }
 
+
 main {
     padding: 2em;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Esto asegura que la imagen se ajuste correctamente al tamaño especificado, sin distorsionarse */
 }
 
 form {
