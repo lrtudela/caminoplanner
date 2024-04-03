@@ -1,11 +1,6 @@
-const { Configuration, OpenAIApi } = require("openai");
+const { OpenAI } = require("openai");
 
 exports.handler = async function(event) {
-    if (event.httpMethod !== "POST") {
-        return { statusCode: 405, body: JSON.stringify({ error: "Método no permitido" }) };
-    }
-
-    // Verifica que la clave API está configurada
     if (!process.env.OPENAI_API_KEY) {
         console.error("Falta la clave API de OpenAI");
         return { statusCode: 500, body: JSON.stringify({ error: "La clave API de OpenAI no está configurada." }) };
@@ -19,10 +14,9 @@ exports.handler = async function(event) {
         return { statusCode: 400, body: JSON.stringify({ error: "Cuerpo de la solicitud mal formado" }) };
     }
 
-    const configuration = new Configuration({
+    const openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY,
     });
-    const openai = new OpenAIApi(configuration);
 
     try {
         const completionResponse = await openai.createCompletion({
