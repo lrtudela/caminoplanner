@@ -4,7 +4,8 @@
   "description": "Un proyecto para planificar tu Camino de Santiago.",
   "main": "index.js",
   "dependencies": {
-    "openai": "^4.32.0"
+    "openai": "^4.32.0",
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {},
   "scripts": {
