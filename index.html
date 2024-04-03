@@ -14,26 +14,30 @@
         <h2>Planifica tu Camino de Santiago</h2>
     </header>
     <main>
-        <form id="itineraryForm">
+    <form id="itineraryForm">
     <div class="form-row">
-        <label for="days">¿Cuántos días quieres usar?</label>
-        <label for="pathPreference">¿Tienes alguna preferencia de camino?</label>
-        <label for="mode">¿Cómo lo vas a hacer?</label>
+        <div class="form-field">
+            <label for="days">¿Cuántos días quieres usar?</label>
+            <input type="number" id="days" name="days" required>
+        </div>
+        <div class="form-field">
+            <label for="pathPreference">¿Tienes alguna preferencia de camino?</label>
+            <select id="pathPreference" name="pathPreference">
+                <option value="none">Ninguna preferencia</option>
+                <!-- Agrega más opciones aquí -->
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="mode">¿Cómo lo vas a hacer?</label>
+            <select id="mode" name="mode">
+                <option value="walking">Andando</option>
+                <!-- Agrega más opciones aquí -->
+            </select>
+        </div>
     </div>
-    <div class="form-row">
-        <input type="number" id="days" name="days" required>
-        <select id="pathPreference" name="pathPreference">
-            <option value="none">Ninguna preferencia</option>
-            <option value="french">Camino Francés</option>
-            <option value="primitive">Camino Primitivo</option>
-            <option value="north">Camino del Norte</option>
-        </select>
-        <select id="mode" name="mode">
-            <option value="walking">Andando</option>
-            <option value="biking">En bici</option>
-        </select>
-    </div>
+    <!-- Repite la estructura de .form-row y .form-field para los otros campos que aparecen en el formulario -->
 </form>
+
 
 
         <div id="results">
