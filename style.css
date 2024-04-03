@@ -47,11 +47,24 @@ header img {
 }
 .form-row {
     display: flex;
-    justify-content: space-between; /* Esto distribuirá el espacio uniformemente entre los elementos */
-    margin-bottom: 10px; /* Espacio entre las filas */
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-input, select {
-    width: calc(33.333% - 10px); /* Distribuye el ancho uniformemente, ajusta el '10px' según sea necesario para el espacio */
-    /* El cálculo del ancho asume 3 elementos con un pequeño ajuste para el espaciado entre ellos */
+.form-field {
+    flex-basis: calc(33% - 20px); /* Ajusta el 20px según el espaciado que quieras entre campos */
+    display: flex;
+    flex-direction: column;
 }
+
+.form-field label {
+    margin-bottom: 5px;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
