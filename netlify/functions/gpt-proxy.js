@@ -1,15 +1,15 @@
-const { OpenAI } = require("openai");
+const { Configuration, OpenAIApi } = require("openai");
 
-const openai = new OpenAI({
+const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+const openai = new OpenAIApi(configuration);
 
 exports.handler = async (event) => {
   try {
     const { prompt } = JSON.parse(event.body);
 
-    // Usando la SDK correctamente de acuerdo a la documentación actualizada
-    const response = await openai.Completions.create({
+    const completionResponse = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: prompt,
       temperature: 0.7,
@@ -18,7 +18,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ data: response.choices[0].text.trim() }),
+      body: JSON.stringify({ data: completionResponse.data.choices[0].text.trim() }),
     };
   } catch (error) {
     console.error("Error al solicitar a OpenAI:", error);
