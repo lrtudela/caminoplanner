@@ -7,7 +7,7 @@ exports.handler = async (event) => {
     }
 
     const { prompt } = JSON.parse(event.body);
-
+    
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers: {
@@ -22,7 +22,15 @@ exports.handler = async (event) => {
       }),
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
+
+    if (!data.choices || data.choices.length === 0) {
+      throw new Error('No completion choices found.');
+    }
 
     return {
       statusCode: 200,
