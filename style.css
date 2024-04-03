@@ -122,4 +122,38 @@ header img {
     display: flex;
     align-items: center;
 }
+/* Estilos para los fieldsets de checkboxes */
+.checkboxes-fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Estilos para legends */
+.checkboxes-fieldset legend {
+    padding: 0 5px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* Estilos para el contenedor de los checkboxes que tienen múltiples columnas */
+.multi-column {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Ajusta este valor si necesitas más espacio entre filas y columnas */
+}
+
+/* Estilos para las columnas de checkboxes */
+.checkbox-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - 15px); /* Ajusta para el espacio entre columnas */
+}
+
+/* Estilos para las etiquetas de los checkboxes */
+.checkboxes label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Ajusta si necesitas más espacio entre checkboxes */
+}
 
