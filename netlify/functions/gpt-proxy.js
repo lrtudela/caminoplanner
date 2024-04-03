@@ -1,27 +1,25 @@
-const { Configuration, OpenAIApi } = require("openai");
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+const { OpenAIApi } = require("openai");
 
 exports.handler = async (event) => {
   try {
-    const { prompt } = JSON.parse(event.body);
+    const body = JSON.parse(event.body);
+    const openai = new OpenAIApi({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
 
-    const completionResponse = await openai.createCompletion({
+    const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: prompt,
-      temperature: 0.7,
+      prompt: body.prompt,
       max_tokens: 150,
+      temperature: 0.7,
     });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ data: completionResponse.data.choices[0].text.trim() }),
+      body: JSON.stringify({ data: completion.data.choices[0].text.trim() }),
     };
   } catch (error) {
-    console.error("Error al solicitar a OpenAI:", error);
-    return { statusCode: 500, body: JSON.stringify({ error: "Error interno del servidor al solicitar a OpenAI" }) };
+    console.error("Error en gpt-proxy.js:", error);
+    return { statusCode: 500, body: JSON.stringify({ error: "Error procesando la solicitud." }) };
   }
 };
