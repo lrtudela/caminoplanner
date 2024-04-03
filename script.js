@@ -5,27 +5,31 @@ document.getElementById('itineraryForm').addEventListener('submit', function(eve
     const generateButton = document.getElementById('generateItinerary');
     generateButton.textContent = 'Generando itinerario...';
 
-    // Simula el envío de datos al servidor (en una implementación real, aquí incluirías los datos del formulario)
-    const dataToSend = { prompt: "Esto es una prueba de conexión." };
+    // Recoge los datos del formulario
+    const days = document.getElementById('days').value;
+    const pathPreference = document.getElementById('pathPreference').value;
+    const mode = document.getElementById('mode').value;
+    const prompt = `Tengo ${days} días de vacaciones y los quiero pasar haciendo el Camino de Santiago, especialmente interesado en ${pathPreference}, y lo haré ${mode}.`;
 
-    // Llama a la función de Netlify
+    // Llama a la función de Netlify `gpt-proxy.js`
     fetch('/.netlify/functions/gpt-proxy', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(dataToSend),
+      body: JSON.stringify({ prompt: prompt }),
     })
     .then(response => response.json())
     .then(data => {
-      // Muestra la respuesta de prueba en el contenedor de resultados
+      // Muestra el resultado en el contenedor de resultados
       document.getElementById('results').textContent = data.data;
-      // Cambia el texto del botón de nuevo
+      // Cambia el texto del botón de nuevo a "Volver a Generar"
       generateButton.textContent = 'Volver a Generar';
     })
     .catch(error => {
       console.error('Error:', error);
       document.getElementById('results').textContent = 'Ha ocurrido un error al generar el itinerario.';
-      generateButton.textContent = 'Volver a Generar';
+      // Restablece el texto del botón para nueva generación
+      generateButton.textContent = 'Generar Itinerario';
     });
 });
