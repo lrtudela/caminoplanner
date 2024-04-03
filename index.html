@@ -54,17 +54,20 @@
     <form id="itineraryForm">
     <!-- Tus campos de entrada existentes aquí -->
     
-    <div class="form-field checkboxes">
-        <label for="nature">
-            <input type="checkbox" id="nature" name="focus" value="nature"> Naturaleza
-        </label>
-        <label for="history">
-            <input type="checkbox" id="history" name="focus" value="history"> Historia
-        </label>
-        <label for="socialize">
-            <input type="checkbox" id="socialize" name="focus" value="socialize"> Conocer gente
-        </label>
-    </div>
+   <fieldset class="checkboxes-fieldset">
+        <legend>En qué quieres centrar tu camino</legend>
+        <div class="checkboxes">
+            <label for="nature">
+                <input type="checkbox" id="nature" name="focus" value="nature"> Naturaleza
+            </label>
+            <label for="history">
+                <input type="checkbox" id="history" name="focus" value="history"> Historia
+            </label>
+            <label for="socialize">
+                <input type="checkbox" id="socialize" name="focus" value="socialize"> Conocer gente
+            </label>
+        </div>
+    </fieldset>
 </form>
 
 </form>
