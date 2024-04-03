@@ -1,4 +1,4 @@
-const { OpenAIApi } = require('openai');
+const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
   try {
@@ -7,22 +7,26 @@ exports.handler = async (event) => {
     }
 
     const { prompt } = JSON.parse(event.body);
-    
-    // Inicializar el cliente de OpenAI directamente con la clave API
-    const openai = new OpenAIApi({
-      apiKey: process.env.OPENAI_API_KEY,
+
+    const response = await fetch('https://api.openai.com/v1/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "text-davinci-003",
+        prompt: prompt,
+        temperature: 0.7,
+        max_tokens: 150,
+      }),
     });
 
-    const completionResponse = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: prompt,
-      max_tokens: 150,
-      temperature: 0.7,
-    });
+    const data = await response.json();
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ data: completionResponse.data.choices[0].text.trim() }),
+      body: JSON.stringify({ data: data.choices[0].text.trim() }),
     };
   } catch (error) {
     console.error("Error processing request:", error);
