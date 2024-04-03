@@ -15,7 +15,7 @@ exports.handler = async (event) => {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "text-davinci-003",
+        model: "text-davinci-004", // Actualizamos al modelo más reciente
         prompt: prompt,
         temperature: 0.7,
         max_tokens: 150,
@@ -40,7 +40,7 @@ exports.handler = async (event) => {
     console.error("Error processing request:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Internal Server Error" })
+      body: JSON.stringify({ error: "Internal Server Error, " + error.message })
     };
   }
 };
