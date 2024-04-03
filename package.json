@@ -1,10 +1,10 @@
 {
-  "name": "tu-proyecto",
-  "version": "4.32.1",
-  "description": "",
+  "name": "camino-planner",
+  "version": "1.0.0",
+  "description": "Un proyecto para planificar tu Camino de Santiago.",
   "main": "index.js",
   "dependencies": {
-    "openai": "^1.0.0"
+    "openai": "^4.32.1"
   },
   "devDependencies": {},
   "scripts": {
