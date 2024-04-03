@@ -53,7 +53,7 @@ input[type="number"], select {
 
 /* Estilos para cada fieldset de checkboxes */
 .checkboxes-fieldset {
-    width: calc(50% - 10px); /* Ajusta el ancho para dos fieldsets por fila, considerando el gap */
+    width: calc(40% - 10px); /* Ajusta el ancho para dos fieldsets por fila, considerando el gap */
     border: 1px solid #ccc;
     padding: 20px;
     margin-top: 20px;
