@@ -5,25 +5,20 @@ document.getElementById('itineraryForm').addEventListener('submit', function(eve
     const generateButton = document.getElementById('generateItinerary');
     generateButton.textContent = 'Generando itinerario...';
 
-    // Recoge los datos del formulario
-    const days = document.getElementById('days').value;
-    const pathPreference = document.getElementById('pathPreference').value;
-    const mode = document.getElementById('mode').value;
+    // Simula el envío de datos al servidor (en una implementación real, aquí incluirías los datos del formulario)
+    const dataToSend = { prompt: "Esto es una prueba de conexión." };
 
-    // Crea el prompt para GPT
-    const prompt = `Tengo ${days} días de vacaciones y los quiero pasar haciendo el Camino de Santiago, especialmente ${pathPreference} y lo haré ${mode}`;
-
-    // Llama a la función de Netlify `gpt-proxy.js`
+    // Llama a la función de Netlify
     fetch('/.netlify/functions/gpt-proxy', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ prompt: prompt }),
+      body: JSON.stringify(dataToSend),
     })
     .then(response => response.json())
     .then(data => {
-      // Muestra el resultado en el contenedor de resultados
+      // Muestra la respuesta de prueba en el contenedor de resultados
       document.getElementById('results').textContent = data.data;
       // Cambia el texto del botón de nuevo
       generateButton.textContent = 'Volver a Generar';
