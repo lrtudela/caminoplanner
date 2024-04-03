@@ -1,17 +1,36 @@
-document.getElementById('itineraryForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Evita el envío tradicional del formulario
+document.getElementById('itineraryForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Previene el envío normal del formulario
+    
+    // Cambia el texto del botón para indicar que el proceso está en marcha
+    const generateButton = document.getElementById('generateItinerary');
+    generateButton.textContent = 'Generando itinerario...';
 
-    // Aquí recolectarías los valores del formulario
-    const formData = new FormData(e.target);
-    const formProps = Object.fromEntries(formData);
+    // Recoge los datos del formulario
+    const days = document.getElementById('days').value;
+    const pathPreference = document.getElementById('pathPreference').value;
+    const mode = document.getElementById('mode').value;
 
-    // Aquí convertirías los datos del formulario en un prompt para GPT
-    console.log(formProps); // Remplaza esto con tu lógica para enviar los datos a GPT
+    // Crea el prompt para GPT
+    const prompt = `Tengo ${days} días de vacaciones y los quiero pasar haciendo el Camino de Santiago, especialmente ${pathPreference} y lo haré ${mode}`;
 
-    // Imaginemos que envías los datos a GPT y recibes una respuesta
-    // Supongamos que esta es la respuesta de GPT (sustituye esto con la llamada real a la API)
-    const gptResponse = "Aquí iría la respuesta generada por GPT basada en el formulario.";
-
-    // Actualizas la interfaz de usuario con la respuesta
-    document.getElementById('results').textContent = gptResponse;
+    // Llama a la función de Netlify `gpt-proxy.js`
+    fetch('/.netlify/functions/gpt-proxy', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt: prompt }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Muestra el resultado en el contenedor de resultados
+      document.getElementById('results').textContent = data.data;
+      // Cambia el texto del botón de nuevo
+      generateButton.textContent = 'Volver a Generar';
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      document.getElementById('results').textContent = 'Ha ocurrido un error al generar el itinerario.';
+      generateButton.textContent = 'Volver a Generar';
+    });
 });
