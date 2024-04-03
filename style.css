@@ -106,7 +106,7 @@ input[type="checkbox"] {
     padding-top: 20px; /* Añade espacio en la parte superior para bajar el botón */
 }
 .checkboxes-fieldset {
-        width: 100%; /* Los fieldset ocupan todo el ancho en pantallas pequeñas */
+        width: 45%; /* Los fieldset ocupan todo el ancho en pantallas pequeñas */
 }
 @media (max-width: 768px) {
     .checkboxes-container {
