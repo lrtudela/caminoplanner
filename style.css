@@ -25,7 +25,7 @@ label {
 }
 
 input[type="number"], select {
-    width: 100%;
+    width: 150px;
     padding: 0.5em;
     margin: 0.5em 0;
     border-radius: 5px;
@@ -61,12 +61,7 @@ header img {
     margin-bottom: 5px;
 }
 
-input[type="number"], select {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+
 @media (max-width: 768px) {
     .form-row, .form-field {
         flex-direction: column;
