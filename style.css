@@ -82,14 +82,18 @@ header img {
     margin-left: 5px; /* Alineación de la leyenda dentro del fieldset */
 }
 
-/* Estilos para las etiquetas de los checkboxes */
-.form-field label {
-    display: block; /* Cada checkbox en su propia línea */
-    margin-bottom: 5px; /* Espacio entre cada checkbox */
+
+/* Estilos adicionales para los checkboxes */
+.checkboxes {
+    display: flex;
+    flex-direction: column; /* O 'row' si prefieres que estén en línea */
+    width: 100%; /* Opcional, si quieres que ocupen todo el ancho disponible */
+    margin-top: 20px; /* Añade un espacio arriba para separar del último campo de entrada */
 }
 
-/* Estilos para los checkboxes */
-.form-field input[type="checkbox"] {
-    margin-right: 5px; /* Espacio entre el checkbox y su etiqueta */
+/* Estilos para las etiquetas de los checkboxes si están en línea */
+.checkboxes label {
+    margin-right: 10px; /* Solo necesario si los pones en línea con 'flex-direction: row' */
 }
+
 
