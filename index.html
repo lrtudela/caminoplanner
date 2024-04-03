@@ -51,27 +51,30 @@
         </div>
      </div>
     <!-- Repite la estructura de .form-row y .form-field para los otros campos que aparecen en el formulario -->
-    <form id="itineraryForm">
-    <!-- Tus campos de entrada existentes aquí -->
-    
-   <fieldset class="checkboxes-fieldset">
+        
+   <div class="checkboxes-container">
+    <fieldset class="checkboxes-fieldset">
         <legend>En qué quieres centrar tu camino</legend>
-        <div class="checkboxes">
-            <label for="nature">
-                <input type="checkbox" id="nature" name="focus" value="nature"> Naturaleza
-            </label>
-            <label for="history">
-                <input type="checkbox" id="history" name="focus" value="history"> Historia
-            </label>
-            <label for="socialize">
-                <input type="checkbox" id="socialize" name="focus" value="socialize"> Conocer gente
-            </label>
+        <div class="multi-column">
+            <div class="checkbox-column">
+                <label for="nature">
+                    <input type="checkbox" id="nature" name="focus" value="nature"> Naturaleza
+                </label>
+                <label for="history">
+                    <input type="checkbox" id="history" name="focus" value="history"> Historia
+                </label>
+            </div>
+            <div class="checkbox-column">
+                <label for="socialize">
+                    <input type="checkbox" id="socialize" name="focus" value="socialize"> Conocer gente
+                </label>
+            </div>
         </div>
     </fieldset>
 
     <fieldset class="checkboxes-fieldset">
         <legend>Otras preferencias</legend>
-        <div class="checkboxes multi-column">
+        <div class="multi-column">
             <div class="checkbox-column">
                 <label for="budget">
                     <input type="checkbox" id="budget" name="preferences" value="budget"> Tengo un presupuesto ajustado
@@ -90,7 +93,8 @@
             </div>
         </div>
     </fieldset>
-</form>
+</div>
+
 
 </form>
 
