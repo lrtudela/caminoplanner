@@ -1,22 +1,18 @@
-const { Configuration, OpenAIApi } = require("openai");
+const { OpenAI } = require("openai");
 
 exports.handler = async function(event) {
-    if (event.httpMethod !== "POST") {
-        return { statusCode: 405, body: "Método no permitido" };
-    }
-
+    // Parsea el cuerpo de la solicitud entrante para obtener el prompt
     const { prompt } = JSON.parse(event.body);
-    const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
+
+    // Inicializa el cliente de OpenAI con tu clave API
+    const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
     try {
         const completion = await openai.createCompletion({
-            model: "text-davinci-003", // Asegúrate de elegir el modelo correcto
+            model: "text-davinci-003",
             prompt: prompt,
-            max_tokens: 150,
             temperature: 0.7,
+            max_tokens: 150,
         });
 
         return {
@@ -24,6 +20,6 @@ exports.handler = async function(event) {
             body: JSON.stringify({ data: completion.data.choices[0].text.trim() }),
         };
     } catch (error) {
-        return { statusCode: 500, body: JSON.stringify({ error: "Error al conectar con OpenAI" }) };
+        return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
     }
 };
