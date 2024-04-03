@@ -69,4 +69,27 @@ header img {
     }
 }
 
+/* Estilos para el contenedor de los checkboxes */
+.form-field fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px; /* Añade espacio arriba si es necesario */
+}
+
+/* Estilos para la leyenda */
+.form-field legend {
+    padding: 0 5px; /* Espacio pequeño a los lados de la leyenda */
+    margin-left: 5px; /* Alineación de la leyenda dentro del fieldset */
+}
+
+/* Estilos para las etiquetas de los checkboxes */
+.form-field label {
+    display: block; /* Cada checkbox en su propia línea */
+    margin-bottom: 5px; /* Espacio entre cada checkbox */
+}
+
+/* Estilos para los checkboxes */
+.form-field input[type="checkbox"] {
+    margin-right: 5px; /* Espacio entre el checkbox y su etiqueta */
+}
 
