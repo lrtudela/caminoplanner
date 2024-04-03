@@ -96,4 +96,30 @@ header img {
     margin-right: 10px; /* Solo necesario si los pones en línea con 'flex-direction: row' */
 }
 
+/* Estilos para el fieldset */
+.checkboxes-fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px; /* Añade espacio en la parte superior */
+}
+
+/* Estilos para el legend */
+.checkboxes-fieldset legend {
+    padding: 0 5px;
+    font-size: 1em;
+    font-weight: bold; /* Opcional para dar más énfasis */
+}
+
+/* Estilos para el contenedor de los checkboxes */
+.checkboxes {
+    display: flex;
+    flex-direction: column; /* Para apilar los checkboxes verticalmente */
+    gap: 10px; /* Espacio entre checkboxes, requiere una versión reciente de navegadores */
+}
+
+/* Estilos para las etiquetas de los checkboxes */
+.checkboxes label {
+    display: flex;
+    align-items: center;
+}
 
