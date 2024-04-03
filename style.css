@@ -67,4 +67,11 @@ input[type="number"], select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+@media (max-width: 768px) {
+    .form-row, .form-field {
+        flex-direction: column;
+        flex-basis: auto;
+    }
+}
+
 
